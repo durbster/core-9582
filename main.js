@@ -5,8 +5,6 @@ const host = 'localhost';
 const port = 8000;
 
 function getPath(url) {
-  console.log(`getPth`, url);
-
   if(url === "/") {
     return "/public/index.html"; 
   }
@@ -35,7 +33,6 @@ function getContentType(url) {
 const requestListener = function (req, res) {
   const path = getPath(req.url);
   const type = getContentType(req.url);
-  console.log(req.url, type);
 
   fs.readFile(__dirname + path)
     .then(contents => {
