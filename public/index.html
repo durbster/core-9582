@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title>Target site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       window.appConfig = {
         API_LAYER_URL:
@@ -10,27 +11,6 @@
           "https://storage.googleapis.com/podium-test-cdn/static/clients/MortgageMatcher"
       };
     </script>
-    <script
-      type="module"
-      crossorigin
-      src="https://test.podium-solutions.co.uk/mab/rates-table/assets/index-CFVKOGaL.js"
-    ></script>
-    <script
-      type="module"
-      crossorigin
-      src="https://test.podium-solutions.co.uk/mab/rates-table/assets/AddressSelector-Bs15mZDh.js"
-      defer
-    ></script>
-    <link
-      rel="stylesheet"
-      crossorigin
-      href="https://test.podium-solutions.co.uk/mab/rates-table/assets/index-B6jZ-trM.css"
-    />
-    <link
-      rel="stylesheet"
-      crossorigin
-      href="https://test.podium-solutions.co.uk/mab/rates-table/assets/AddressSelector-DLWBhQDW.css"
-    />
     <style>
       .site-header,
       .site-footer {
@@ -38,13 +18,18 @@
         background-color: #eee;
       }
     </style>
+    <script
+      type="module"
+      src="https://test.podium-solutions.co.uk/mab/rates-table/CORE-9582/deploy.js"
+      defer
+    ></script>
   </head>
   <body>
     <header>
       <div class="site-header">Target site header</div>
     </header>
     <main>
-      <div id="app">App goes here...</div>
+      <podium-pcw> </podium-pcw>
     </main>
     <footer class="site-footer">Target site footer</footer>
   </body>

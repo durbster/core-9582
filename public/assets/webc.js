@@ -1,5 +1,3 @@
-
-
 class PodiumPCW extends HTMLElement {
   baseUrl = "/";
   manifestUrl = this.baseUrl + "assets/manifest.json";
