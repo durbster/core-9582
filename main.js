@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require('fs').promises;
 
 const host = 'localhost';
-const port = 8000;
+const port = 8080;
 
 function getPath(url) {
   if(url === "/") {
