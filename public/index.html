@@ -4,7 +4,8 @@
     <title>Target site</title>
     <script>
       window.appConfig = {
-        API_LAYER_URL: "/mortgagematcher/rates-table/api",
+        API_LAYER_URL:
+          "https://test.podium-solutions.co.uk/mortgagematcher/rates-table/api",
         CDN_URL:
           "https://storage.googleapis.com/podium-test-cdn/static/clients/MortgageMatcher"
       };
@@ -14,22 +15,37 @@
       crossorigin
       src="https://test.podium-solutions.co.uk/mab/rates-table/assets/index-CFVKOGaL.js"
     ></script>
+    <script
+      type="module"
+      crossorigin
+      src="https://test.podium-solutions.co.uk/mab/rates-table/assets/AddressSelector-Bs15mZDh.js"
+      defer
+    ></script>
     <link
       rel="stylesheet"
       crossorigin
       href="https://test.podium-solutions.co.uk/mab/rates-table/assets/index-B6jZ-trM.css"
     />
+    <link
+      rel="stylesheet"
+      crossorigin
+      href="https://test.podium-solutions.co.uk/mab/rates-table/assets/AddressSelector-DLWBhQDW.css"
+    />
+    <style>
+      .site-header,
+      .site-footer {
+        padding: 0.5rem;
+        background-color: #eee;
+      }
+    </style>
   </head>
   <body>
     <header>
-      <div>Site header</div>
-      <nav>
-        <a href="/local.html">Local</a>
-      </nav>
+      <div class="site-header">Target site header</div>
     </header>
     <main>
       <div id="app">App goes here...</div>
     </main>
-    <footer>Site footer</footer>
+    <footer class="site-footer">Target site footer</footer>
   </body>
 </html>
