@@ -7,6 +7,11 @@ class PodiumPCW extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     const target = document.querySelector("podium-pcw");
+
+    if(!target) {
+      console.error("Could not find the <podium-pcw /> element");
+    }
+
     const host = document.createElement("div");
     host.id = "app";
     target.insertAdjacentElement("afterend", host);
