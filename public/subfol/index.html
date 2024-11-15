@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Target site</title>
+    <title>Target site in subfolder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      window.appConfig = {
-        API_LAYER_URL:
-          "https://test.podium-solutions.co.uk/mortgagematcher/rates-table/api",
-        CDN_URL:
-          "https://storage.googleapis.com/podium-test-cdn/static/clients/MortgageMatcher"
-      };
-    </script>
     <style>
       .site-header,
       .site-footer {
@@ -20,6 +12,7 @@
     </style>
     <script
       type="module"
+      crossorigin
       src="https://test.podium-solutions.co.uk/mab/rates-table/CORE-9582/deploy.js"
       defer
     ></script>
@@ -29,7 +22,7 @@
       <div class="site-header">Target site header</div>
     </header>
     <main>
-      <podium-pcw> </podium-pcw>
+      <podium-pcw public-path="/subfol"> </podium-pcw>
     </main>
     <footer class="site-footer">Target site footer</footer>
   </body>

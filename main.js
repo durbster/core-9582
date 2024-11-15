@@ -2,18 +2,22 @@ const http = require("http");
 const fs = require('fs').promises;
 
 const host = 'localhost';
-const port = 8080;
+const port = 8081;
 
 function getPath(url) {
   if(url === "/") {
     return "/public/index.html"; 
+  }
+  
+  if(url === "/subfol") {
+    return "/public/subfol/index.html"; 
   }
 
   return "/public/" + url;
 }
 
 function getContentType(url) {
-  if(url === "/") {
+  if(url === "/" || url === "/subfol") {
     return "text/html"; 
   }
 
@@ -41,7 +45,6 @@ const requestListener = function (req, res) {
         res.end(contents);
     }).catch(err => {
       res.writeHead(500);
-      // res.end(err);
       return;
   });
 };

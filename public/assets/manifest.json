@@ -1,6 +1,6 @@
 {
   "index.html": {
-    "file": "assets/index-DTIzwjrA.js",
+    "file": "assets/index-mR6ahhXI.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -8,11 +8,11 @@
       "src/form/address/AddressSelector.vue"
     ],
     "css": [
-      "assets/index-ZnVJnOB3.css"
+      "assets/index-Df4DshXH.css"
     ]
   },
   "src/form/address/AddressSelector.vue": {
-    "file": "assets/AddressSelector-BM3jAKcg.js",
+    "file": "assets/AddressSelector-DY0_K2t9.js",
     "name": "AddressSelector",
     "src": "src/form/address/AddressSelector.vue",
     "isDynamicEntry": true,
@@ -20,7 +20,7 @@
       "index.html"
     ],
     "css": [
-      "assets/AddressSelector-8n3kLHem.css"
+      "assets/AddressSelector-DLWBhQDW.css"
     ]
   }
 }
