@@ -11,6 +11,8 @@ class PodiumPCW extends HTMLElement {
   get publicPath() {
     const attr = this.getAttribute("public-path");
 
+    console.log(`pubpath`, attr);
+
     // Removes trailing slash if found
     return attr ? attr.replace(/\/+$/, "") : "";
   }
@@ -21,8 +23,7 @@ class PodiumPCW extends HTMLElement {
     if (!attr) {
       console.error("PCW error: Missing site-url attribute on th <podium-pcw /> element.");
       this.showError();
-      // TODO Return blank
-      return "https://test.podium-solutions.co.uk/mab/rates-table/CORE-9582/";
+      return "";
     }
 
     return attr;

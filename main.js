@@ -9,7 +9,7 @@ function getPath(url) {
     return "/public/index.html"; 
   }
   
-  if(url === "/subfol") {
+  if(url === "/subfol" || url === "/subfol/") {
     return "/public/subfol/index.html"; 
   }
 
