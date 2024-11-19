@@ -54,7 +54,7 @@ class PodiumPCW extends HTMLElement {
     "https://test.podium-solutions.co.uk/mab/rates-table/api/",
       CDN_URL:
     "https://storage.googleapis.com/podium-test-cdn/static/clients/MortgageMatcher",
-      PUBLIC_PATH: this.publicPath
+      BASE_URL: this.publicPath
     };
   }
 
