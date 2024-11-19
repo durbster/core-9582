@@ -10,19 +10,27 @@
         background-color: #eee;
       }
     </style>
+    <!---->
     <script
       type="module"
       crossorigin
-      src="https://test.podium-solutions.co.uk/mab/rates-table/CORE-9582/deploy.js"
+      src="https://test.podium-solutions.co.uk/mab/rates-table/CORE-9582/deploy.js?publicPath=/blah"
       defer
     ></script>
+    <!--
+    <script type="module" crossorigin src="/assets/deploy.js" defer></script>
+    -->
   </head>
   <body>
     <header>
       <div class="site-header">Target site header</div>
     </header>
     <main>
-      <podium-pcw> </podium-pcw>
+      <podium-pcw
+        public-path="/"
+        site-url="https://test.podium-solutions.co.uk/mab/rates-table/CORE-9582/"
+      >
+      </podium-pcw>
     </main>
     <footer class="site-footer">Target site footer</footer>
   </body>

@@ -4,14 +4,40 @@ if (!pcwTarget) {
 }
 
 class PodiumPCW extends HTMLElement {
-  siteUrl = "https://test.podium-solutions.co.uk/mab/rates-table/CORE-9582/";
-  manifestUrl = this.siteUrl + ".vite/manifest.json";
+  //manifestUrl = this.siteUrl + ".vite/manifest.json";
   feedbackElement = null;
   hostElement = document.createElement("div");
+
+  get publicPath() {
+    const attr = this.getAttribute("public-path");
+
+    // Removes trailing slash if found
+    return attr ? attr.replace(/\/+$/, "") : "";
+  }
+
+  get siteURL() {
+    const attr = this.getAttribute("site-url");
+
+    if (!attr) {
+      console.error("PCW error: Missing site-url attribute on th <podium-pcw /> element.");
+      this.showError();
+      // TODO Return blank
+      return "https://test.podium-solutions.co.uk/mab/rates-table/CORE-9582/";
+    }
+
+    return attr;
+  }
+
+  get manifestURL() {
+    return this.getAttribute("site-url") + ".vite/manifest.json";
+  }
 
   constructor() {
     super();
     this.setConfig();
+
+    console.log(`public-path`, this.getAttribute("public-path"));
+    console.log(`site-url`, this.getAttribute("site-url"));
 
     this.attachShadow({ mode: "open" });
     this.createHostElement();
@@ -20,29 +46,25 @@ class PodiumPCW extends HTMLElement {
   }
 
   setConfig() {
-    if (!this.getAttribute("public-path")) {
-      console.error("'public-path' attribute is missing. Add to <podium-pcw public-path='URL' />");
-    }
-
     // Set params
     // TODO set prod values
     window.podiumAppConfig = {
       API_LAYER_URL:
-    "https://test.podium-solutions.co.uk/mortgagematcher/rates-table/api",
+    "https://test.podium-solutions.co.uk/mab/rates-table/api/",
       CDN_URL:
     "https://storage.googleapis.com/podium-test-cdn/static/clients/MortgageMatcher",
-      BASE_URL: this.getAttribute("public-path")
+      PUBLIC_PATH: this.publicPath
     };
   }
 
   createHostElement() {
-    this.hostElement.id = "podium-pcw-app"; // TODO update to unique name
+    this.hostElement.id = "podium-pcw-app";
     pcwTarget.insertAdjacentElement("afterend", this.hostElement);
   }
 
   showLoader() {
     this.feedbackElement = document.createElement("img");
-    this.feedbackElement.setAttribute("style", "max-height:50px");
+    this.feedbackElement.setAttribute("style", "max-height:60px");
 
     // TODO Move to prod or CDN
     this.feedbackElement.src =
@@ -59,7 +81,9 @@ class PodiumPCW extends HTMLElement {
   }
 
   async fetchSiteAssets() {
-    const manifest = await fetch(this.manifestUrl).catch(() => {
+    console.log(`--`, this.manifestURL);
+
+    const manifest = await fetch(this.manifestURL).catch(() => {
       this.showError("PCW Error: failed to load manifest");
     });
 
@@ -70,14 +94,14 @@ class PodiumPCW extends HTMLElement {
     const script = document.createElement("script");
     script.type = "module";
     script.crossOrigin = "";
-    script.src = this.siteUrl + indexJs;
+    script.src = this.siteURL + indexJs;
 
     document.head.appendChild(script);
 
     data["index.html"].css.forEach((item) => {
       const styles = document.createElement("link");
       styles.setAttribute("rel", "stylesheet");
-      styles.setAttribute("href", this.siteUrl + item);
+      styles.setAttribute("href", this.siteURL + item);
       document.head.appendChild(styles);
     });
 
