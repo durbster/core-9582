@@ -9,6 +9,10 @@ function getPath(url) {
     return "/public/index.html"; 
   }
   
+  if(url === "/live" || url === "/live/") {
+    return "/public/live/index.html"; 
+  }
+  
   if(url === "/subfol" || url === "/subfol/") {
     return "/public/subfol/index.html"; 
   }
