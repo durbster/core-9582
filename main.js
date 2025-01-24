@@ -21,7 +21,7 @@ function getPath(url) {
 }
 
 function getContentType(url) {
-  if(url.startsWith("/") || url.startsWith("/subfol") || url.startsWith("/framed")) {
+  if(url.endsWidth("/")) {
     return "text/html"; 
   }
 
