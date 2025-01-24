@@ -12,12 +12,16 @@ function getPath(url) {
   if(url === "/subfol" || url === "/subfol/") {
     return "/public/subfol/index.html"; 
   }
+  
+  if(url === "/framed" || url === "/framed/") {
+    return "/public/framed/index.html"; 
+  }
 
   return "/public/" + url;
 }
 
 function getContentType(url) {
-  if(url === "/" || url === "/subfol") {
+  if(url.startsWith("/") || url.startsWith("/subfol") || url.startsWith("/framed")) {
     return "text/html"; 
   }
 
