@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require('fs').promises;
 
 const host = 'localhost';
-const port = 8081;
+const port = 8080;
 
 function getPath(url) {
   if(url === "/") {
@@ -21,7 +21,7 @@ function getPath(url) {
 }
 
 function getContentType(url) {
-  if(url.endsWidth("/")) {
+  if(url.endsWith("/")) {
     return "text/html"; 
   }
 

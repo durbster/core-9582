@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Target site in subfolder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html,body {
+        margin: 0;
+        padding: 0;
+        background-color: #fea;
+      }
+      .site-header,
+      .site-footer {
+        padding: 0.5rem;
+        background-color: #eee;
+      }
+    </style>
+
+    <!-- Load deployment script from Podium site -->
+    <script
+      type="module"
+      crossorigin
+      src="https://test.podium-solutions.co.uk/mab/rates-table/meridian/mount.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="site-header">Target site header</div>
+    </header>
+    <main>
+      <!-- Add web component in target location -->
+      <podium-pcw
+        public-path="/subfol"
+        api-path="https://live.podium-solutions.co.uk/mab/rates-table/api"
+      >
+      </podium-pcw>
+    </main>
+    <footer class="site-footer">Target site footer</footer>
+  </body>
+</html>
