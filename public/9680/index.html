@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Target site in subfolder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html,body {
+        margin: 0;
+        padding: 0;
+        background-color: #fefefe;
+      }
+      .site-header,
+      .site-footer {
+        padding: 0.5rem;
+        background-color: #eee;
+      }
+      main {
+        padding: 2rem;
+      }
+    </style>
+
+    <!-- Load deployment script from Podium site -->
+    <script
+      type="module"
+      crossorigin
+      src="https://storage.googleapis.com/podium-test4-cdn/static/clients/msm/embeds/test-component-esb.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="site-header">Remote site header</div>
+    </header>
+    <main>
+      <p>This is a test page, loading the best rates web component.</p>
+      <!-- Add web component in target location -->
+      <podium-test-comp></podium-test-comp>
+    </main>
+    <footer class="site-footer">Remote site footer</footer>
+  </body>
+</html>

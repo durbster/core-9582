@@ -9,6 +9,7 @@ function getPath(url) {
     return "/public/index.html"; 
   }
   
+  // MAB tests
   if(url === "/live" || url === "/live/") {
     return "/public/live/index.html"; 
   }
@@ -19,6 +20,11 @@ function getPath(url) {
   
   if(url === "/framed" || url === "/framed/") {
     return "/public/framed/index.html"; 
+  }
+
+  // MSM tests
+  if(url === "/9680" || url === "/9680/") {
+    return "/public/9680/index.html"; 
   }
 
   return "/public/" + url;
