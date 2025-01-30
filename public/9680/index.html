@@ -24,7 +24,14 @@
     <script
       type="module"
       crossorigin
-      src="https://storage.googleapis.com/podium-test4-cdn/static/clients/msm/embeds/test-component-esb.min.js?v=0.0.0"
+      src="https://storage.googleapis.com/podium-test4-cdn/static/clients/msm/embeds/first-time-buyer-wc.js?v=2"
+      defer
+    ></script>
+
+    <script
+      type="module"
+      crossorigin
+      src="https://storage.googleapis.com/podium-test4-cdn/static/clients/msm/embeds/first-time-buyer-vue.js?v=2"
       defer
     ></script>
   </head>
@@ -34,8 +41,12 @@
     </header>
     <main>
       <p>This is a test page, loading the best rates web component.</p>
-      <!-- Add web component in target location -->
+      
+      <p>Raw web component</p>
       <podium-test-comp></podium-test-comp>
+
+      <p>Vue version</p>
+      <first-time-buyer></first-time-buyer>
     </main>
     <footer class="site-footer">Remote site footer</footer>
   </body>
