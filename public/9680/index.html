@@ -21,7 +21,12 @@
     </style>
 
     <!-- Load deployment script from Podium site -->
-    <script
+     
+    <script type="module" src="https://storage.googleapis.com/podium-test4-cdn/static/clients/msm/embeds/wc-leading-rates-ftb.js?v=1"></script>
+    <script type="module" src="https://storage.googleapis.com/podium-test4-cdn/static/clients/msm/embeds/wc-leading-rates-hmv.js?v=1"></script>
+    <script type="module" src="https://storage.googleapis.com/podium-test4-cdn/static/clients/msm/embeds/wc-leading-rates-rem.js?v=1"></script> 
+
+    <!-- <script
       type="module"
       crossorigin
       src="https://storage.googleapis.com/podium-test4-cdn/static/clients/msm/embeds/first-time-buyer-wc.js?v=2"
@@ -33,7 +38,7 @@
       crossorigin
       src="https://storage.googleapis.com/podium-test4-cdn/static/clients/msm/embeds/first-time-buyer-vue.js?v=2"
       defer
-    ></script>
+    ></script> -->
   </head>
   <body>
     <header>
@@ -42,11 +47,15 @@
     <main>
       <p>This is a test page, loading the best rates web component.</p>
       
-      <p>Raw web component</p>
+      <leading-rates-ftb></leading-rates-ftb>
+      <leading-rates-hmv></leading-rates-hmv>
+      <leading-rates-rem></leading-rates-rem>
+
+      <!-- <p>Raw web component</p>
       <podium-test-comp></podium-test-comp>
 
       <p>Vue version</p>
-      <first-time-buyer></first-time-buyer>
+      <first-time-buyer></first-time-buyer> -->
     </main>
     <footer class="site-footer">Remote site footer</footer>
   </body>
