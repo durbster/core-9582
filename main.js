@@ -13,6 +13,11 @@ function getPath(url) {
   if(url === "/live" || url === "/live/") {
     return "/public/live/index.html"; 
   }
+
+  // MAB tests
+  if(url === "/local" || url === "/local/") {
+    return "/public/local/index.html"; 
+  }
   
   if(url === "/subfol" || url === "/subfol/") {
     return "/public/subfol/index.html"; 
