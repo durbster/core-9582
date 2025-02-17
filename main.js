@@ -26,6 +26,10 @@ function getPath(url) {
   if(url === "/framed" || url === "/framed/") {
     return "/public/framed/index.html"; 
   }
+  
+  if(url === "/9789" || url === "/9789/") {
+    return "/public/9789/index.html"; 
+  }
 
   // MSM tests
   if(url === "/9680" || url === "/9680/") {
@@ -54,6 +58,8 @@ function getContentType(url) {
 }
 
 const requestListener = function (req, res) {
+  const proxyURLs = getProxy(req.url);
+
   const path = getPath(req.url);
   const type = getContentType(req.url);
 
