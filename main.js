@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require('fs').promises;
+const request = require('request');
 
 const host = 'localhost';
 const port = 8080;
@@ -27,8 +28,8 @@ function getPath(url) {
     return "/public/framed/index.html"; 
   }
   
-  if(url === "/9789" || url === "/9789/") {
-    return "/public/9789/index.html"; 
+  if(url === "/alfa" || url === "/alfa/") {
+    return "/public/alfa/index.html"; 
   }
 
   // MSM tests
@@ -57,21 +58,31 @@ function getContentType(url) {
   }
 }
 
+function proxyAPIURL(path, req, res) {
+  // res.setHeader("Content-Type", "application/json");
+  // res.writeHead(200);
+
+  const proxy = path.replace("/subfol/", 'https://test.podium-solutions.co.uk/');
+  req.pipe(request(proxy)).pipe(res);
+}
+
 const requestListener = function (req, res) {
-  const proxyURLs = getProxy(req.url);
+  if (req.url.startsWith("/subfol/mab/rates-table/api/")) {
+    proxyAPIURL(req.url, req, res);
+  } else {
+    const path = getPath(req.url);
+    const type = getContentType(req.url);
 
-  const path = getPath(req.url);
-  const type = getContentType(req.url);
-
-  fs.readFile(__dirname + path)
-    .then(contents => {
-        res.setHeader("Content-Type", type);
-        res.writeHead(200);
-        res.end(contents);
-    }).catch(err => {
-      res.writeHead(500);
-      return;
-  });
+    fs.readFile(__dirname + path)
+      .then(contents => {
+          res.setHeader("Content-Type", type);
+          res.writeHead(200);
+          res.end(contents);
+      }).catch(err => {
+        res.writeHead(500);
+        return;
+    });
+  }
 };
 
 const server = http.createServer(requestListener);
